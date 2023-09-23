@@ -8,6 +8,7 @@ module.exports = function(RED) {
         this.attrkey = n.attr;
         this.charkey = n.chr;
         this.property = n.property||"payload";
+        this.outproperty = n.outproperty||n.property||"payload";
         var node = this;
         this.on("input", function(msg) {
             var value = RED.util.getMessageProperty(msg,node.property);
@@ -23,7 +24,7 @@ module.exports = function(RED) {
                     options.textNodeName = node.charkey || options.charkey || '_';
                     const parser = new XMLParser(options);
                     value = parser.parse(value);
-                    RED.util.setMessageProperty(msg,node.property,value);
+                    RED.util.setMessageProperty(msg,node.outproperty,value);
                     node.send(msg);
                 }
                 else if (typeof value === "object") {
@@ -32,7 +33,7 @@ module.exports = function(RED) {
                     options.async = false;
                     const builder = new XMLBuilder(options);
                     value = builder.build(value);
-                    RED.util.setMessageProperty(msg,node.property,value);
+                    RED.util.setMessageProperty(msg,node.outproperty,value);
                     node.send(msg);
                 }
                 else { node.warn(RED._("xml.errors.xml_js")); }
