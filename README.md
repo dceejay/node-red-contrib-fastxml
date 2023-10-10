@@ -17,3 +17,7 @@ Usage
 A function that converts the `msg.payload` to and from XML format.
 
 Uses the fast-xml-parser library.
+
+**NOTE**: it is slightly different from the core XML node in that the default header for tag 
+attributes can be left blank which can help flatten some XML docs, but does mean they can't 
+be recontructed 1 for 1 in that case.
