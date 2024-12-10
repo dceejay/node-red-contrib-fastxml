@@ -1,7 +1,7 @@
 
 module.exports = function(RED) {
     "use strict";
-    const { XMLParser, XMLBuilder, XMLValidator} = require("fast-xml-parser");
+    const { XMLParser, XMLBuilder } = require("fast-xml-parser");
 
     function fastXMLnode(n) {
         RED.nodes.createNode(this,n);
