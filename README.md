@@ -3,7 +3,6 @@ node-red-contrib-fastxml
 
 A <a href="http://nodered.org" target="_new">Node-RED</a> node to parse XML strings into JSON and vice-versa. 
 
-
 Install
 -------
 
@@ -20,4 +19,4 @@ Uses the fast-xml-parser library.
 
 **NOTE**: it is slightly different from the core XML node in that the default header for tag 
 attributes can be left blank which can help flatten some XML docs, but does mean they can't 
-be recontructed 1 for 1 in that case.
+be reconstructed 1 for 1 in that case.
